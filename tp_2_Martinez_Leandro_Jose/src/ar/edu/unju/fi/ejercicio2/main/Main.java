@@ -129,13 +129,15 @@ public class Main {
 	                
 	                switch (opcion_modificar) {
 						case 1: 
-							System.out.println("opcion 1");
+							Mes mes = validarMes();
+							efemerideFounded.setMes(mes);
 							break;
 						case 2:
-							System.out.println("opcion 2");
+							int dia = validarDia();
+							efemerideFounded.setDia(dia);
 							break;
 						case 3:
-							System.out.println("opcion 3");
+							efemerideFounded.setDetalle(scanner.nextLine());
 							break;
 						case 4: 
 							System.out.println("Fin de la modificacion...");
@@ -144,8 +146,7 @@ public class Main {
 							break;
 					}
 	                
-	        	} while(opcion_modificar != 4);    	
-	        	
+	        	} while(opcion_modificar != 4);
                 System.out.println("Efemeride modificado exitosamente...");
 	        }
 		}
