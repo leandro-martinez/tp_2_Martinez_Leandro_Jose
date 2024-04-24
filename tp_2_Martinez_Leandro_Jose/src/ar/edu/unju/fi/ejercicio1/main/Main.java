@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import ar.edu.unju.fi.ejercicio1.model.Producto;
+import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
+import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
 
 public class Main {
 	private static Scanner scanner;
@@ -43,9 +45,22 @@ public class Main {
 		 
 		 
 	}
-	
+
 	public static void crearProducto () {
-		int opcion = 0;
+		Producto producto = new Producto();
+		
+		System.out.println("Ingrese el código del producto: ");
+		producto.setCodigo(scanner.nextLine());
+		
+		System.out.println("Ingrese la descripción del producto: ");
+		producto.setDescripcion(scanner.nextLine());
+		
+		System.out.println("Ingrese el precio del producto: ");
+		double precio = scanner.nextDouble();
+		producto.setPrecioUnitario(precio);
+		scanner.nextLine();
+		
+		int origen_fabricacion = 0;
 		do {
 			System.out.println("---- Origen de Fabricación ----");
 			System.out.println("1 - Argentina");
@@ -55,18 +70,22 @@ public class Main {
 			System.out.println("Elija una opcion: ");
 			
 			if (scanner.hasNextInt()) {
-                opcion = scanner.nextInt();
+                origen_fabricacion = scanner.nextInt();
                 scanner.nextLine();
-                if (opcion < 1 || opcion > 4) {
+                if (origen_fabricacion < 1 || origen_fabricacion > 4) {
                     System.out.println("Opción no válida. Intente nuevamente...");
                 }
             } else {
                 scanner.nextLine();
                 System.out.println("Opción no válida. Intente nuevamente...");
             }
-		} while(opcion < 1 || opcion > 4);
+		} while(origen_fabricacion < 1 || origen_fabricacion > 4);
 		
-		int opcion_dos = 0;
+		OrigenFabricacion origenFabricacion = 
+				OrigenFabricacion.values()[origen_fabricacion - 1];
+		producto.setOrigenFabricacion(origenFabricacion);
+		
+		int opcion_categoria = 0;
 		do {
 			System.out.println("---- Categoria ----");
 			System.out.println("1 - Telefonía");
@@ -76,16 +95,22 @@ public class Main {
 			System.out.println("Elija una opcion: ");
 			
 			if (scanner.hasNextInt()) {
-                opcion_dos = scanner.nextInt();
+                opcion_categoria = scanner.nextInt();
                 scanner.nextLine();
-                if (opcion_dos < 1 || opcion_dos > 4) {
+                if (opcion_categoria < 1 || opcion_categoria > 4) {
                     System.out.println("Opción no válida. Intente nuevamente...");
                 }
             } else {
                 scanner.nextLine();
                 System.out.println("Opción no válida. Intente nuevamente...");
             }
-		} while(opcion_dos < 1 || opcion_dos > 4);
-		System.out.println("opcion elegida: "+ opcion_dos);
+		} while(opcion_categoria < 1 || opcion_categoria > 4);
+		
+		Categoria categoria = 
+				Categoria.values()[opcion_categoria - 1];
+		producto.setCategoria(categoria);
+		
+		productos.add(producto);
+		System.out.println("Producto creado exitosamente...");
 	}
 }
