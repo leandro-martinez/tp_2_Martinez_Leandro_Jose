@@ -18,6 +18,11 @@ public class Efemeride {
 		this.detalle = detalle;
 	}
 
+	@Override
+	public String toString() {
+		return "Efemeride [codigo=" + codigo + ", mes=" + mes + ", dia=" + dia + ", detalle=" + detalle + "]";
+	}
+
 	public String getCodigo() {
 		return codigo;
 	}
