@@ -69,6 +69,16 @@ public class Main {
 		producto.setPrecioUnitario(precio);
 		scanner.nextLine();
 		
+		OrigenFabricacion origenFabricacion = obtenerOrigenFabricacion();
+		producto.setOrigenFabricacion(origenFabricacion);
+		
+		Categoria categoria = obtenerCategoria();
+		producto.setCategoria(categoria);
+		
+		productos.add(producto);
+		System.out.println("Producto creado exitosamente...");
+	}
+	public static OrigenFabricacion obtenerOrigenFabricacion () {
 		int origen_fabricacion = 0;
 		do {
 			System.out.println("---- Origen de Fabricación ----");
@@ -90,10 +100,11 @@ public class Main {
             }
 		} while(origen_fabricacion < 1 || origen_fabricacion > 4);
 		
-		OrigenFabricacion origenFabricacion = 
+		OrigenFabricacion origen = 
 				OrigenFabricacion.values()[origen_fabricacion - 1];
-		producto.setOrigenFabricacion(origenFabricacion);
-		
+		return origen;
+	}
+	public static Categoria obtenerCategoria () {
 		int opcion_categoria = 0;
 		do {
 			System.out.println("---- Categoria ----");
@@ -117,9 +128,6 @@ public class Main {
 		
 		Categoria categoria = 
 				Categoria.values()[opcion_categoria - 1];
-		producto.setCategoria(categoria);
-		
-		productos.add(producto);
-		System.out.println("Producto creado exitosamente...");
+		return categoria;
 	}
 }
