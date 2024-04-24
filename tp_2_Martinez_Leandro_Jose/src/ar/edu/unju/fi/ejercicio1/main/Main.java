@@ -31,7 +31,7 @@ public class Main {
 			 switch (option) {
 			 	case 1: crearProducto();
 			 		break;
-			 	case 2: System.out.println("opcion 2");
+			 	case 2: mostrarProductos();
 			 		break;
 			 	case 3: System.out.println("opcion 3");
 			 		break;
@@ -45,7 +45,16 @@ public class Main {
 		 
 		 
 	}
-
+	
+	public static void mostrarProductos() {
+		if (productos.isEmpty()) {
+			System.out.println("Lista de productos vacía...");
+		} else {
+			System.out.println("---- Lista de productos ----");
+			productos.forEach(product -> System.out.println(product));			
+		}
+	}
+	
 	public static void crearProducto () {
 		Producto producto = new Producto();
 		
