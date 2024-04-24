@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import ar.edu.unju.fi.ejercicio2.model.Efemeride;
+import ar.edu.unju.fi.ejercicio3.constantes.Mes;
 
 public class Main {
 	private static Scanner scanner;
@@ -28,9 +29,9 @@ public class Main {
 			scanner.nextLine();
 			
 			switch (option) {
-			case 1: System.out.println("Opcion 1");
+			case 1: crearEfemeride();
 				break;
-			case 2: System.out.println("Opcion 2");
+			case 2: mostrarEfemerides();
 				break;
 			case 3: System.out.println("Opcion 3");
 				break;
@@ -52,5 +53,49 @@ public class Main {
 			efemerides.forEach(i -> System.out.println(i));
 		}
 	}
-
+	public static void crearEfemeride () {
+		Efemeride efemeride = new Efemeride();
+		
+		System.out.println("Ingrese el código del efemeride: ");
+		efemeride.setCodigo(scanner.nextLine());
+		
+		int numero_mes = 0;
+		do {
+			System.out.println("Ingrese el mes en tipo de dato numerico [1 al 12]: ");
+			if (scanner.hasNextInt()) {
+	            numero_mes = scanner.nextInt();
+	            scanner.nextLine();
+	            if (numero_mes < 1 || numero_mes > 12) {
+	                System.out.println("Opción no válida. Intente nuevamente...");
+	            }
+	        } else {
+	        	scanner.nextLine();
+	        	System.out.println("Opción no válida. Intente nuevamente...");
+	        }
+		} while (numero_mes < 1 || numero_mes > 12);
+		Mes mes = Mes.values()[numero_mes - 1];
+		efemeride.setMes(mes);
+		
+		int numero_dia = 0;
+		do {
+			System.out.println("Ingrese el dia [1 al 31]: ");
+			if (scanner.hasNextInt()) {
+	            numero_dia = scanner.nextInt();
+	            scanner.nextLine();
+	            if (numero_dia < 1 || numero_dia > 31) {
+	                System.out.println("Opción no válida. Intente nuevamente...");
+	            }
+	        } else {
+	        	scanner.nextLine();
+	        	System.out.println("Opción no válida. Intente nuevamente...");
+	        }
+		} while(numero_dia < 1 || numero_dia > 31);
+		efemeride.setDia(numero_dia);
+	
+		System.out.println("Ingrese el detalle: ");
+		efemeride.setDetalle(scanner.nextLine());
+		
+		efemerides.add(efemeride);
+		System.out.println("Efemeride fue creado exitosamente...");
+	}
 }
