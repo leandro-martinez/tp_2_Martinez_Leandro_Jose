@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import ar.edu.unju.fi.ejercicio1.model.Producto;
 import ar.edu.unju.fi.ejercicio2.model.Efemeride;
 import ar.edu.unju.fi.ejercicio3.constantes.Mes;
 
@@ -36,7 +37,7 @@ public class Main {
 				break;
 			case 3: eliminarEfemeride();
 				break;
-			case 4: System.out.println("Opcion 4");
+			case 4: modificarEfemeride();
 				break;
 			case 5: System.out.println("Fin del programa...");
 				break;
@@ -94,6 +95,27 @@ public class Main {
 			if(!efemerideFounded) {
 				System.out.println("No se encontró el efemeride...");
 			}
+		}
+	}
+	public static void modificarEfemeride () {
+		if(efemerides.isEmpty()) {
+			System.out.println("Lista vacía...");
+		} else {
+			System.out.println("Ingrese el código del efemeride a modificar: ");
+			String codigo = scanner.nextLine();
+			Efemeride efemerideFounded = null;
+			for (Efemeride efemeride : efemerides) {
+	        	if (efemeride.getCodigo().equals(codigo)) {
+	        		efemerideFounded = efemeride;
+	        		break;
+	             }
+	        }
+	        if (efemerideFounded == null) {
+	        	System.out.println("Efemeride no encontrado.");
+	        } else {
+	        	System.out.println("Efemeride encontrado: ");
+	        	System.out.println(efemerideFounded);
+	        }
 		}
 	}
 	public static Mes validarMes () {
