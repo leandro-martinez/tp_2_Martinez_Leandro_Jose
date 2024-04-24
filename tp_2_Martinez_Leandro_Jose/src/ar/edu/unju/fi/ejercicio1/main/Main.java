@@ -33,7 +33,7 @@ public class Main {
 			 		break;
 			 	case 2: mostrarProductos();
 			 		break;
-			 	case 3: System.out.println("opcion 3");
+			 	case 3: modificarProducto();
 			 		break;
 			 	case 4: System.out.println("Fin del programa...");
 			 	 	break;
@@ -77,6 +77,27 @@ public class Main {
 		
 		productos.add(producto);
 		System.out.println("Producto creado exitosamente...");
+	}
+	public static void modificarProducto () {
+		if (productos.isEmpty()) {
+			 System.out.println("Lista de productos vacía...");
+	    } else {
+	        System.out.print("Ingrese el código del producto a modificar: ");
+	        String codigo = scanner.nextLine();
+	        Producto productoFounded = null;
+	        for (Producto producto : productos) {
+	        	if (producto.getCodigo().equals(codigo)) {
+	        		productoFounded = producto;
+	        		break;
+	             }
+	        }
+	        if (productoFounded == null) {
+	        	System.out.println("Producto no encontrado.");
+	        } else {
+	        	System.out.println("Producto encontrado: ");
+	        	System.out.println(productoFounded);	        	
+	        }
+	    }
 	}
 	public static OrigenFabricacion obtenerOrigenFabricacion () {
 		int origen_fabricacion = 0;
