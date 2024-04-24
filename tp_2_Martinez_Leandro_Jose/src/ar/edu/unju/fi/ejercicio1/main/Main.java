@@ -64,10 +64,18 @@ public class Main {
 		System.out.println("Ingrese la descripción del producto: ");
 		producto.setDescripcion(scanner.nextLine());
 		
-		System.out.println("Ingrese el precio del producto: ");
-		double precio = scanner.nextDouble();
+		double precio;
+		while (true) {
+			System.out.println("Ingrese el precio del producto: ");
+		    String input = scanner.nextLine();
+		    try {
+		    	precio = Double.parseDouble(input);
+		        break;
+		    } catch (NumberFormatException e) {
+		    	System.out.println("Tipo de dato no válido. Intente nuevamente...");
+		    }
+		 }
 		producto.setPrecioUnitario(precio);
-		scanner.nextLine();
 		
 		OrigenFabricacion origenFabricacion = obtenerOrigenFabricacion();
 		producto.setOrigenFabricacion(origenFabricacion);
@@ -113,8 +121,18 @@ public class Main {
 							productoFounded.setDescripcion(scanner.nextLine());
 							break;
 						case 2:
-							System.out.println("Ingrese el nuevo precio: ");
-							productoFounded.setPrecioUnitario(scanner.nextDouble());
+							double precio;
+							while (true) {
+								System.out.println("Ingrese el precio del producto: ");
+							    String input = scanner.nextLine();
+							    try {
+							    	precio = Double.parseDouble(input);
+							        break;
+							    } catch (NumberFormatException e) {
+							    	System.out.println("Tipo de dato no válido. Intente nuevamente...");
+							    }
+							 }
+							productoFounded.setPrecioUnitario(precio);
 							break;
 						case 3:
 							OrigenFabricacion origen = obtenerOrigenFabricacion();
