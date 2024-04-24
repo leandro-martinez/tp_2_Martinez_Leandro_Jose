@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import ar.edu.unju.fi.ejercicio1.model.Producto;
+import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
+import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
 import ar.edu.unju.fi.ejercicio2.model.Efemeride;
 import ar.edu.unju.fi.ejercicio3.constantes.Mes;
 
@@ -113,8 +115,38 @@ public class Main {
 	        if (efemerideFounded == null) {
 	        	System.out.println("Efemeride no encontrado.");
 	        } else {
-	        	System.out.println("Efemeride encontrado: ");
-	        	System.out.println(efemerideFounded);
+	        	int opcion_modificar = 0;
+	        	do {
+	        		System.out.println("---- Modificar Efemeride ----");
+	                System.out.println("1 - Mes");
+	                System.out.println("2 - Dia");
+	                System.out.println("3 - Detalle");
+	                System.out.println("4 - Salir");
+	                System.out.print("Elija una opción: ");
+	                
+	                opcion_modificar = scanner.nextInt();
+	                scanner.nextLine(); 
+	                
+	                switch (opcion_modificar) {
+						case 1: 
+							System.out.println("opcion 1");
+							break;
+						case 2:
+							System.out.println("opcion 2");
+							break;
+						case 3:
+							System.out.println("opcion 3");
+							break;
+						case 4: 
+							System.out.println("Fin de la modificacion...");
+						default:
+							System.out.println("Opcion incorrecta. Intente nuevamente...");
+							break;
+					}
+	                
+	        	} while(opcion_modificar != 4);    	
+	        	
+                System.out.println("Efemeride modificado exitosamente...");
 	        }
 		}
 	}
