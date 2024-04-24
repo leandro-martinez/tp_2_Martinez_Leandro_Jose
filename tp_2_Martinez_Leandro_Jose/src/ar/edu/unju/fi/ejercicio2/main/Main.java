@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio2.main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ public class Main {
 				break;
 			case 2: mostrarEfemerides();
 				break;
-			case 3: System.out.println("Opcion 3");
+			case 3: eliminarEfemeride();
 				break;
 			case 4: System.out.println("Opcion 4");
 				break;
@@ -97,5 +98,29 @@ public class Main {
 		
 		efemerides.add(efemeride);
 		System.out.println("Efemeride fue creado exitosamente...");
+	}
+	public static void eliminarEfemeride () {
+		if(efemerides.isEmpty()) {
+			System.out.println("Lista vacía...");
+		} else {
+			System.out.println("Ingrese el código del efemeride a eliminar: ");
+			String codigo = scanner.nextLine();
+			
+			Boolean efemerideFounded = false;
+			Iterator<Efemeride> iterator = efemerides.iterator();
+			while(iterator.hasNext()) {
+				Efemeride efemeride = iterator.next();
+				if(efemeride.getCodigo().equalsIgnoreCase(codigo)) {
+					efemerideFounded = true;
+				  	iterator.remove();
+					mostrarEfemerides();
+					System.out.println("------------------");
+					System.out.println("Se eliminó el efemeride con el codigo: "+ codigo);
+				}
+			}
+			if(!efemerideFounded) {
+				System.out.println("No se encontró el efemeride...");
+			}
+		}
 	}
 }
