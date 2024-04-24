@@ -27,7 +27,7 @@ public class Main {
 			 scanner.nextLine();
 			 
 			 switch (option) {
-			 	case 1: System.out.println("opcion 1");
+			 	case 1: crearProducto();
 			 		break;
 			 	case 2: System.out.println("opcion 2");
 			 		break;
@@ -40,6 +40,31 @@ public class Main {
 			 		break;
 			 }
 		 } while(option != 4);
+		 
+		 
 	}
-
+	
+	public static void crearProducto () {
+		int opcion = 0;
+		do {
+			System.out.println("---- Origen de Fabricación ----");
+			System.out.println("1 - Argentina");
+			System.out.println("2 - China");
+			System.out.println("3 - Brasil");
+			System.out.println("4 - Uruguay");
+			System.out.println("Elija una opcion: ");
+			
+			if (scanner.hasNextInt()) {
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+                if (opcion < 1 || opcion > 4) {
+                    System.out.println("Opción no válida. Intente nuevamente...");
+                }
+            } else {
+                scanner.nextLine();
+                System.out.println("Opción no válida. Intente nuevamente...");
+            }
+		} while(opcion < 1 || opcion > 4);
+		System.out.println("opcion elegida: "+ opcion);
+	}
 }
