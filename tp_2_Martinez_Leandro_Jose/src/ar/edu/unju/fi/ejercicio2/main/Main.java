@@ -44,5 +44,13 @@ public class Main {
 			}
 		} while(option != 5);
 	}
+	public static void mostrarEfemerides () {
+		if(efemerides.isEmpty()) {
+			System.out.println("Lista vacía...");
+		} else {
+			System.out.println("---- Lista de Efemerides ----");
+			efemerides.forEach(i -> System.out.println(i));
+		}
+	}
 
 }
