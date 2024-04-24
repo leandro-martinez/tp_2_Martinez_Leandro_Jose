@@ -107,8 +107,34 @@ public class Main {
 	                opcion_modificar = scanner.nextInt();
 	                scanner.nextLine(); 
 	                
+	                switch (opcion_modificar) {
+						case 1: 
+							System.out.println("Ingrese la nueva descripción: ");
+							productoFounded.setDescripcion(scanner.nextLine());
+							break;
+						case 2:
+							System.out.println("Ingrese el nuevo precio: ");
+							productoFounded.setPrecioUnitario(scanner.nextDouble());
+							break;
+						case 3:
+							OrigenFabricacion origen = obtenerOrigenFabricacion();
+							productoFounded.setOrigenFabricacion(origen);
+							break;
+						case 4:
+							Categoria categoria = obtenerCategoria();
+							productoFounded.setCategoria(categoria);
+							break;
+						case 5:
+							System.out.println("Fin de la modificacion...");
+							break;
+						default:
+							System.out.println("Opcion incorrecta. Intente nuevamente...");
+							break;
+					}
+	                
 	        	} while(opcion_modificar != 5);    	
-                System.out.println("Opcion modificar: " + opcion_modificar);
+	        	
+                System.out.println("Producto modificado exitosamente...");
 	        }
 	    }
 	}
