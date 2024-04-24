@@ -94,8 +94,21 @@ public class Main {
 	        if (productoFounded == null) {
 	        	System.out.println("Producto no encontrado.");
 	        } else {
-	        	System.out.println("Producto encontrado: ");
-	        	System.out.println(productoFounded);	        	
+	        	int opcion_modificar = 0;
+	        	do {
+	        		System.out.println("---- Modificar Producto ----");
+	                System.out.println("1 - Descripción");
+	                System.out.println("2 - Precio");
+	                System.out.println("3 - Origen de Fabricación");
+	                System.out.println("4 - Categoría");
+	                System.out.println("5 - Salir");
+	                System.out.print("Elija una opción: ");
+	                
+	                opcion_modificar = scanner.nextInt();
+	                scanner.nextLine(); 
+	                
+	        	} while(opcion_modificar != 5);    	
+                System.out.println("Opcion modificar: " + opcion_modificar);
 	        }
 	    }
 	}
