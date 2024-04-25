@@ -33,7 +33,7 @@ public class Main {
 				switch (opcion) {
 					case 1: crearJugador();
 						break;
-					case 2: System.out.println("Opcion 2");
+					case 2: mostrarJugadores();
 						break;
 					case 3: System.out.println("Opcion 3");
 						break;
@@ -48,6 +48,14 @@ public class Main {
 			} while(opcion != 5);
 		} catch (InputMismatchException ex) {
 			System.out.println("Por favor ingrese numeros...");
+		}
+	}
+	public static void mostrarJugadores () {
+		if(jugadores.isEmpty()) {
+			System.out.println("Lista vacia...");
+		} else {
+			System.out.println("--------- Lista de jugadores ----------");
+			jugadores.forEach(jugador -> System.out.println(jugador));
 		}
 	}
 	public static void crearJugador () {
