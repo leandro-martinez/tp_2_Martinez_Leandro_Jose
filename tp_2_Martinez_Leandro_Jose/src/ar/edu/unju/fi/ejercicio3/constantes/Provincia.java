@@ -24,7 +24,9 @@ public enum Provincia {
 		return superficie;
 	}
 	
-	public double calcularDensidadPoblacional () {
-		return cantidadPoblacion / superficie;
+	public String calcularDensidadPoblacional () {
+		double densidad = cantidadPoblacion / superficie;
+		String formated = String.format("%.2f", densidad);
+		return formated;
 	}
 }
