@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.ejercicio2.model;
 
-import ar.edu.unju.fi.ejercicio3.constantes.Mes;
+import ar.edu.unju.fi.ejercicio2.constantes.Mes;
 
 public class Efemeride {
 	private String codigo;

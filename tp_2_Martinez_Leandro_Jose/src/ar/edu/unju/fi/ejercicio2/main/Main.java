@@ -5,9 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-
+import ar.edu.unju.fi.ejercicio2.constantes.Mes;
 import ar.edu.unju.fi.ejercicio2.model.Efemeride;
-import ar.edu.unju.fi.ejercicio3.constantes.Mes;
 
 public class Main {
 	private static Scanner scanner;
