@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.ejercicio4.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import ar.edu.unju.fi.ejercicio4.constantes.Posicion;
@@ -29,8 +30,10 @@ public class Jugador {
 
 	@Override
 	public String toString() {
-		return "Jugador [nombre=" + nombre + ", apellido=" + apellido + ", fechaDeNacimiento=" + fechaDeNacimiento
-				+ ", nacionalidad=" + nacionalidad + ", estatura=" + estatura + ", peso=" + peso + ", posicion="
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		String fechaDeNacimientoStr = formato.format(this.getFechaDeNacimiento().getTime());
+		return "Jugador [nombre=" + nombre + ", apellido=" + apellido + ", fechaDeNacimiento=" + fechaDeNacimientoStr
+				+ ", nacionalidad=" + nacionalidad + ", estatura=" + estatura + "cm" + ", peso=" + peso + "kg" + ", posicion="
 				+ posicion + "]";
 	}
 	
