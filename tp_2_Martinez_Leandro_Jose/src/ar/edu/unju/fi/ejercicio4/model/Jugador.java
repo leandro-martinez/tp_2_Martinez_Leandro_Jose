@@ -33,6 +33,17 @@ public class Jugador {
 				+ ", nacionalidad=" + nacionalidad + ", estatura=" + estatura + ", peso=" + peso + ", posicion="
 				+ posicion + "]";
 	}
+	
+	public int calcularEdad () {
+		 Calendar fechaActual = Calendar.getInstance();
+		 int edad = fechaActual.get(Calendar.YEAR) - this.getFechaDeNacimiento().get(Calendar.YEAR);
+		 if (fechaActual.get(Calendar.MONTH) < fechaDeNacimiento.get(Calendar.MONTH) ||
+		    (fechaActual.get(Calendar.MONTH) == fechaDeNacimiento.get(Calendar.MONTH) &&
+		     fechaActual.get(Calendar.DAY_OF_MONTH) < fechaDeNacimiento.get(Calendar.DAY_OF_MONTH))) {
+		        edad--;
+		  }
+		 return edad;   
+	}
 
 	public String getNombre() {
 		return nombre;
