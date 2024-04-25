@@ -5,9 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import ar.edu.unju.fi.ejercicio1.model.Producto;
-import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
-import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
+
 import ar.edu.unju.fi.ejercicio2.model.Efemeride;
 import ar.edu.unju.fi.ejercicio3.constantes.Mes;
 
@@ -137,6 +135,7 @@ public class Main {
 							efemerideFounded.setDia(dia);
 							break;
 						case 3:
+							System.out.println("Ingrese un nuevo detalle: ");
 							efemerideFounded.setDetalle(scanner.nextLine());
 							break;
 						case 4: 
