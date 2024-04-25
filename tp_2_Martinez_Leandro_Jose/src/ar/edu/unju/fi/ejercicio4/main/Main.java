@@ -3,6 +3,7 @@ package ar.edu.unju.fi.ejercicio4.main;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,7 +38,7 @@ public class Main {
 						break;
 					case 3: System.out.println("Opcion 3");
 						break;
-					case 4: System.out.println("Opcion 4");
+					case 4: eliminarJugador();
 						break;
 					case 5: System.out.println("Fin del programa...");
 						break;
@@ -92,6 +93,28 @@ public class Main {
         jugadores.add(jugador);
         
         System.out.println("Se agregó un nuevo jugador...");
+	}
+	public static void eliminarJugador() {
+		System.out.println("Ingrese el nombre del jugador: ");
+		String nombre = scanner.next();
+		
+		System.out.println("Ingrese el apellido del jugador: ");
+		String apellido = scanner.next();
+		
+		Iterator<Jugador> iterator = jugadores.iterator();
+        boolean jugadorEncontrado = false;
+
+        while (iterator.hasNext()) {
+            Jugador jugador = iterator.next();
+            if (jugador.getNombre().equalsIgnoreCase(nombre) && jugador.getApellido().equalsIgnoreCase(apellido)) {
+                iterator.remove();
+                System.out.println("Jugador eliminado correctamente.");
+                jugadorEncontrado = true;
+            }
+        }
+        if (!jugadorEncontrado) {
+        	System.out.println("No se encontró ningún jugador con ese nombre y apellido.");
+        }
 	}
 	public static Posicion validarPosicion () {
 		int opcion = 0;
