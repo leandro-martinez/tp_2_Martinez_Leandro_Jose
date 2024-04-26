@@ -36,7 +36,7 @@ public class Main {
 						break;
 					case 2: mostrarJugadores();
 						break;
-					case 3: System.out.println("Opcion 3");
+					case 3: modificarJugador();
 						break;
 					case 4: eliminarJugador();
 						break;
@@ -115,6 +115,34 @@ public class Main {
         if (!jugadorEncontrado) {
         	System.out.println("No se encontró ningún jugador con ese nombre y apellido.");
         }
+	}
+	public static void modificarJugador() {
+		System.out.println("Ingrese el nombre del jugador: ");
+		String nombre = scanner.nextLine();
+		
+		System.out.println("Ingrese el apellido del jugador");
+		String apellido = scanner.nextLine();
+		
+		Jugador jugadorEncontrado = null;
+		
+		for (Jugador jugador : jugadores) {
+            if (jugador.getNombre().equalsIgnoreCase(nombre) &&
+                jugador.getApellido().equalsIgnoreCase(apellido)) {
+                jugadorEncontrado = jugador;
+                break;
+            }
+        }
+
+        if (jugadorEncontrado != null) {
+            // Modificar los datos del jugador
+            Posicion nuevaPosicion = validarPosicion();
+            
+            jugadorEncontrado.setPosicion(nuevaPosicion);
+            System.out.println("Se ha modificado el jugador correctamente...");
+        } else {
+        	System.out.println("Jugador no encontrado...");
+        }
+		
 	}
 	public static Posicion validarPosicion () {
 		int opcion = 0;
