@@ -49,13 +49,17 @@ public class PagoTarjeta implements IPago {
 
 	@Override
 	public double realizarPago(double monto) {
-		// TODO Auto-generated method stub
+		double porcentaje = 0.15;
+		double recarga = monto * porcentaje;
+		this.montoPagado += monto + recarga;
 		return 0;
 	}
 
 	@Override
 	public void imprimirRecibo() {
-		// TODO Auto-generated method stub
-		
+		 System.out.println("------ Pago con Tarjeta ------");
+	     System.out.println("Numero de tarjeta: " + numeroTarjeta);
+	     System.out.println("Fecha de pago: " + fechaPago);
+	     System.out.println("Monto pagado: " + montoPagado);
 	}
 }
