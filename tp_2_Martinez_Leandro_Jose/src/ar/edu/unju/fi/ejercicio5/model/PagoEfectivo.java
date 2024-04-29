@@ -38,13 +38,16 @@ public class PagoEfectivo implements IPago {
 
 	@Override
 	public double realizarPago(double monto) {
-		// TODO Auto-generated method stub
+		double porcentaje = 0.10;
+		double descuento = monto * porcentaje;
+		this.montoPagado += monto - descuento;
 		return 0;
 	}
 
 	@Override
 	public void imprimirRecibo() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("------ Pago Efectivo ------");
+        System.out.println("Fecha de pago: " + fechaPago);
+        System.out.println("Monto pagado: " + montoPagado);
 	}
 }
