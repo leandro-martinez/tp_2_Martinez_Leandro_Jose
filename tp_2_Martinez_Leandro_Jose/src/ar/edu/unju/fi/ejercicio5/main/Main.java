@@ -6,16 +6,17 @@ import java.util.List;
 import java.util.Scanner;
 
 import ar.edu.unju.fi.ejercicio1.model.Producto;
+import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
+import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
 
 public class Main {
 	private static Scanner scanner;
 	private static List<Producto> productos;
 	
 	public static void main(String[] args) {
-		productos = new ArrayList<>();
 		scanner = new Scanner(System.in);
 		int opcion = 0;
-		
+		precargarProductos();
 		try {
 			do {
 				System.out.println("1 - Mostrar productos");
@@ -26,7 +27,7 @@ public class Main {
 				scanner.nextLine();
 				
 				switch(opcion) {
-					case 1: System.out.println("Opcion 1");
+					case 1: mostrarProductos();
 						break;
 					case 2: System.out.println("Opcion 2");
 						break;
@@ -41,5 +42,21 @@ public class Main {
 			System.out.println("Por favor ingrese números.");
 		}
 	}
-
+	public static void precargarProductos () {
+		if(productos == null) {
+			productos = new ArrayList<>();
+		}
+		for (int i = 1; i <= 15; i++) {
+			String codigo = "cod" + i;
+			String descripcion = "Producto " + i;
+			double precio = 10 * i;
+			OrigenFabricacion origenFabricacion = OrigenFabricacion.ARGENTINA; 
+			Categoria categoria =  Categoria.HERRAMIENTAS;
+			productos.add(new Producto(codigo, descripcion, precio,origenFabricacion,categoria));			
+		}
+	}
+	public static void mostrarProductos() {
+		System.out.println("------ Productos ------");
+		productos.forEach(x -> System.out.println(x));
+	}
 }
