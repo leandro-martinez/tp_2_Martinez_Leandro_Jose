@@ -2,7 +2,9 @@ package ar.edu.unju.fi.ejercicio5.model;
 
 import java.time.LocalDate;
 
-public class PagoEfectivo {
+import ar.edu.unju.fi.ejercicio5.interfaces.IPago;
+
+public class PagoEfectivo implements IPago {
 	private LocalDate fechaPago;
 	private Double montoPagado;
 	
@@ -27,5 +29,17 @@ public class PagoEfectivo {
 
 	public void setMontoPagado(Double montoPagado) {
 		this.montoPagado = montoPagado;
+	}
+
+	@Override
+	public double realizarPago(double monto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void imprimirRecibo() {
+		// TODO Auto-generated method stub
+		
 	}
 }
