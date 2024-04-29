@@ -14,6 +14,11 @@ public class PagoEfectivo implements IPago {
 		this.fechaPago = fechaPago;
 		this.montoPagado = montoPagado;
 	}
+	
+	@Override
+	public String toString() {
+		return "------ Pago Efectivo ------"+"\n"+"Fecha de pago: " + fechaPago +"\n"+"Monto pagado: " + montoPagado;
+	}
 
 	public LocalDate getFechaPago() {
 		return fechaPago;

@@ -16,6 +16,12 @@ public class PagoTarjeta implements IPago {
 		this.fechaPago = fechaPago;
 		this.montoPagado = montoPagado;
 	}
+	
+	@Override
+	public String toString() {
+		return "-------Pago con tarjeta------"+"\n"+"Numero de tarjeta: " + numeroTarjeta +"\n"
+				+ "Fecha de Pago: " + fechaPago +"\n"+"Monto Pagado: " + montoPagado;
+	}
 
 	public String getNumeroTarjeta() {
 		return numeroTarjeta;
