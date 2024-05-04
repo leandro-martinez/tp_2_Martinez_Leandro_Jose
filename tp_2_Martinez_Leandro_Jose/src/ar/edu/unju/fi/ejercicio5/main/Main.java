@@ -86,6 +86,7 @@ public class Main {
             if (producto.getCodigo().equalsIgnoreCase(codigoCompra) && producto.getEstado() == true) {
             	productFounded = true;
             	carrito.add(producto);
+            	producto.setEstado(false);
                 System.out.println("Producto agregado al carrito...");
             }
         }
