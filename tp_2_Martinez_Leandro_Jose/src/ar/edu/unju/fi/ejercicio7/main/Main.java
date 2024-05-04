@@ -32,9 +32,9 @@ public class Main {
             opcion = scanner.nextInt();
             
             switch (opcion) {
-                case 1: mostrarProductos(true);
+                case 1: System.out.println("Opcion 1");
                     break;
-                case 2: mostrarProductos(false);
+                case 2: System.out.println("Opcion 2");
                     break;
                 case 3:
                 	System.out.println("Opcion 3");
@@ -73,15 +73,6 @@ public class Main {
 			OrigenFabricacion origenFabricacion = OrigenFabricacion.ARGENTINA; 
 			Categoria categoria =  Categoria.ELECTROHOGAR;
 			productos.add(new Product(codigo, descripcion, precio, origenFabricacion, categoria, estado));
-		}
-	}
-	public static void mostrarProductos(boolean estado) {
-		String stock = estado ? "Disponibles" : "Faltantes";
-		System.out.println("------ Productos " + stock + " ------");
-		for(Product producto: productos) {
-			if(producto.getEstado() == estado) {
-				System.out.println(producto);
-			}
 		}
 	}
 }
