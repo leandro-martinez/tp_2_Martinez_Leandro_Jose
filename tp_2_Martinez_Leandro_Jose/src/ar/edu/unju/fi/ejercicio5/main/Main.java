@@ -14,9 +14,11 @@ import ar.edu.unju.fi.ejercicio5.model.Product;
 public class Main {
 	private static Scanner scanner;
 	private static List<Product> productos;
+	private static List<Product> carrito;
 	
 	public static void main(String[] args) {
 		scanner = new Scanner(System.in);
+		carrito = new ArrayList<>();
 		int opcion = 0;
 		precargarProductos();
 		try {
@@ -31,7 +33,7 @@ public class Main {
 				switch(opcion) {
 					case 1: mostrarProductos();
 						break;
-					case 2: System.out.println("Opcion 2");
+					case 2: realizarCompra();
 						break;
 					case 3: System.out.println("Fin del programa...");
 						break;
@@ -64,5 +66,24 @@ public class Main {
 	public static void mostrarProductos() {
 		System.out.println("------ Productos ------");
 		productos.forEach(x -> System.out.println(x));
+	}
+	public static void realizarCompra () {
+		mostrarProductos();
+		System.out.println("----------------------------");
+		System.out.println("Ingrese el codigo del producto a comprar: ");
+		String codigoCompra = scanner.next();
+		boolean productFounded = false;
+        for (Product producto : productos) {
+            if (producto.getCodigo().equalsIgnoreCase(codigoCompra)) {
+            	productFounded = true;
+                carrito.add(producto);
+                System.out.println("Producto agregado al carrito...");
+                break;
+            }
+        }
+        if(!productFounded) {
+        	System.out.println("Codigo no valido...");
+        }
+        
 	}
 }
