@@ -40,7 +40,7 @@ public class PagoEfectivo implements IPago {
 	public double realizarPago(double monto) {
 		double porcentaje = 0.10;
 		double descuento = monto * porcentaje;
-		this.montoPagado += monto - descuento;
+		this.montoPagado = monto - descuento;
 		return 0;
 	}
 

@@ -51,7 +51,7 @@ public class PagoTarjeta implements IPago {
 	public double realizarPago(double monto) {
 		double porcentaje = 0.15;
 		double recarga = monto * porcentaje;
-		this.montoPagado += monto + recarga;
+		this.montoPagado = monto + recarga;
 		return 0;
 	}
 
