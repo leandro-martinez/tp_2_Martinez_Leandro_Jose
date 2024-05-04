@@ -1,11 +1,19 @@
 package ar.edu.unju.fi.ejercicio7.main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
+import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
+import ar.edu.unju.fi.ejercicio5.model.Product;
+
 public class Main {
+	private static List<Product> productos;
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int opcion = 0;
+		precargarProductos();
 		do {
             System.out.println("------ Menú de opciones ------");
             System.out.println("1 - Mostrar productos activos");
@@ -51,5 +59,22 @@ public class Main {
             }
         } while (opcion != 7);
 		scanner.close();
+	}
+	public static void precargarProductos () {
+		if(productos == null) {
+			productos = new ArrayList<>();
+		}
+		for (int i = 1; i <= 15; i++) {
+			Boolean estado = true;
+			if(i % 2 == 0) {
+				estado = false;
+			}
+			String codigo = "cod" + i;
+			String descripcion = "Producto " + i;
+			double precio = 10 * i;
+			OrigenFabricacion origenFabricacion = OrigenFabricacion.ARGENTINA; 
+			Categoria categoria =  Categoria.ELECTROHOGAR;
+			productos.add(new Product(codigo, descripcion, precio, origenFabricacion, categoria, estado));
+		}
 	}
 }
