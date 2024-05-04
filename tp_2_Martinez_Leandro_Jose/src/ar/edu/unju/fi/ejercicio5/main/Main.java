@@ -83,15 +83,14 @@ public class Main {
 		String codigoCompra = scanner.next();
 		boolean productFounded = false;
         for (Product producto : productos) {
-            if (producto.getCodigo().equalsIgnoreCase(codigoCompra)) {
+            if (producto.getCodigo().equalsIgnoreCase(codigoCompra) && producto.getEstado() == true) {
             	productFounded = true;
-                carrito.add(producto);
+            	carrito.add(producto);
                 System.out.println("Producto agregado al carrito...");
-                break;
             }
         }
         if(!productFounded) {
-        	System.out.println("Codigo no valido...");
+        	System.out.println("Codigo no valido o producto sin stock...");
         }
         mostrarCarrito();
 	}
