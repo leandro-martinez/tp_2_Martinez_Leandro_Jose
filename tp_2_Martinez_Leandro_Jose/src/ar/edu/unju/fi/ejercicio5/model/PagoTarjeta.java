@@ -60,6 +60,6 @@ public class PagoTarjeta implements IPago {
 		 System.out.println("------ Pago con Tarjeta ------");
 	     System.out.println("Numero de tarjeta: " + numeroTarjeta);
 	     System.out.println("Fecha de pago: " + fechaPago);
-	     System.out.println("Monto pagado: " + montoPagado);
+	     System.out.println("Monto pagado: $" + montoPagado);
 	}
 }

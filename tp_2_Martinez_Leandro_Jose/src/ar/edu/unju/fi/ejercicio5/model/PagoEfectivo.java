@@ -48,6 +48,6 @@ public class PagoEfectivo implements IPago {
 	public void imprimirRecibo() {
 		System.out.println("------ Pago Efectivo ------");
         System.out.println("Fecha de pago: " + fechaPago);
-        System.out.println("Monto pagado: " + montoPagado);
+        System.out.println("Monto pagado: $" + montoPagado);
 	}
 }
