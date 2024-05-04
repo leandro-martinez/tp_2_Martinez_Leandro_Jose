@@ -67,6 +67,15 @@ public class Main {
 		System.out.println("------ Productos ------");
 		productos.forEach(x -> System.out.println(x));
 	}
+	public static void mostrarCarrito() {
+		if(carrito.isEmpty()) {
+			System.out.println("------ Carrito vacío ------");
+		}else {
+			System.out.println("------ Carrito ------");
+			carrito.forEach(i -> System.out.println(i));
+			System.out.println("---------------------");
+		}
+	}
 	public static void realizarCompra () {
 		mostrarProductos();
 		System.out.println("----------------------------");
@@ -84,6 +93,6 @@ public class Main {
         if(!productFounded) {
         	System.out.println("Codigo no valido...");
         }
-        
+        mostrarCarrito();
 	}
 }
