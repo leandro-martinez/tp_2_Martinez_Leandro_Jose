@@ -130,7 +130,7 @@ public class Main {
 				pago = new PagoEfectivo(LocalDate.now(), monto);
 				break;
 			case 2: 
-				pago = new PagoTarjeta("TAR3226", LocalDate.now(), monto);
+				pago = new PagoTarjeta("4021123454786010", LocalDate.now(), monto);
 				break;
 			default: System.out.println("error");
 				break;
