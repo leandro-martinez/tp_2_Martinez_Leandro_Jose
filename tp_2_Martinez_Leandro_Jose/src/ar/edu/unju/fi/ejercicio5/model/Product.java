@@ -3,7 +3,7 @@ package ar.edu.unju.fi.ejercicio5.model;
 import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
 import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
 
-public class Producto {
+public class Product {
 	private String codigo;
 	private String descripcion;
 	private Double precioUnitario;
@@ -11,9 +11,9 @@ public class Producto {
 	private Categoria categoria;
 	private Boolean estado;
 	
-	public Producto() {}
+	public Product() {}
 
-	public Producto(String codigo, String descripcion, Double precioUnitario, OrigenFabricacion origenFabricacion,
+	public Product(String codigo, String descripcion, Double precioUnitario, OrigenFabricacion origenFabricacion,
 			Categoria categoria, Boolean estado) {
 		super();
 		this.codigo = codigo;
