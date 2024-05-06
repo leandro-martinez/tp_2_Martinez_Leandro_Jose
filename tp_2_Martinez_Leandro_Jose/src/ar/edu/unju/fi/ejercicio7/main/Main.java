@@ -3,6 +3,7 @@ package ar.edu.unju.fi.ejercicio7.main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
 import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
@@ -32,9 +33,9 @@ public class Main {
             opcion = scanner.nextInt();
             
             switch (opcion) {
-                case 1: System.out.println("Opcion 1");
+                case 1: mostrarProductos(true);
                     break;
-                case 2: System.out.println("Opcion 2");
+                case 2: mostrarProductos(false);
                     break;
                 case 3:
                 	System.out.println("Opcion 3");
@@ -74,5 +75,13 @@ public class Main {
 			Categoria categoria =  Categoria.ELECTROHOGAR;
 			productos.add(new Product(codigo, descripcion, precio, origenFabricacion, categoria, estado));
 		}
+	}
+	public static void mostrarProductos (Boolean estado) {
+		Consumer<Product> products = (Product p) -> {
+			if(p.getEstado() == estado) {
+				System.out.println(p);
+			}
+		};
+		productos.forEach(products);
 	}
 }
