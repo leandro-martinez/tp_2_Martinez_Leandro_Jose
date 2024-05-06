@@ -42,8 +42,7 @@ public class Main {
                     break;
                 case 3: incrementarPrecios();
                     break;
-                case 4:
-                	System.out.println("Opcion 4");
+                case 4: filtrarCategoriaYestado();
                     break;
                 case 5:
                 	System.out.println("Opcion 5");
@@ -100,5 +99,9 @@ public class Main {
 		System.out.println("--- Precios incrementados en un 20% ---");
 		productosIncrementados.forEach(x -> System.out.println(x));
 		
+	}
+	public static void filtrarCategoriaYestado () {
+		Predicate<Product> filters = p -> p.getEstado() && p.getCategoria() == Categoria.ELECTROHOGAR;
+		productos.stream().filter(filters).forEach(x -> System.out.println(x));
 	}
 }
