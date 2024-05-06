@@ -66,14 +66,17 @@ public class Main {
 		}
 		for (int i = 1; i <= 15; i++) {
 			Boolean estado = true;
+			Categoria categoria =  Categoria.ELECTROHOGAR;
 			if(i % 2 == 0) {
 				estado = false;
+			}
+			if(i % 3 == 0) {
+				categoria = Categoria.HERRAMIENTAS;
 			}
 			String codigo = "cod" + i;
 			String descripcion = "Producto " + i;
 			double precio = 10 * i;
 			OrigenFabricacion origenFabricacion = OrigenFabricacion.ARGENTINA; 
-			Categoria categoria =  Categoria.ELECTROHOGAR;
 			productos.add(new Product(codigo, descripcion, precio, origenFabricacion, categoria, estado));
 		}
 	}
