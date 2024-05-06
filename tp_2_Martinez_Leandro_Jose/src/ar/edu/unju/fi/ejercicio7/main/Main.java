@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio7.main;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
@@ -44,8 +45,7 @@ public class Main {
                     break;
                 case 4: filtrarCategoriaYestado();
                     break;
-                case 5:
-                	System.out.println("Opcion 5");
+                case 5: filtrarPorPrecio();
                     break;
                 case 6:
                 	System.out.println("Opcion 6");
@@ -106,5 +106,10 @@ public class Main {
 	public static void filtrarCategoriaYestado () {
 		Predicate<Product> filters = p -> p.getEstado() && p.getCategoria() == Categoria.ELECTROHOGAR;
 		productos.stream().filter(filters).forEach(x -> System.out.println(x));
+	}
+	public static void filtrarPorPrecio () {
+		productos.sort(Comparator.comparing(Product::getPrecioUnitario).reversed());
+		System.out.println("------ Productos ordenados por precio en forma descendente ------");
+		productos.forEach(p -> System.out.println(p));
 	}
 }
