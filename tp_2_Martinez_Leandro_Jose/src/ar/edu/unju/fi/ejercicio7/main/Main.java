@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
 import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
@@ -35,7 +36,7 @@ public class Main {
             switch (opcion) {
                 case 1: mostrarProductos(true);
                     break;
-                case 2: mostrarProductos(false);
+                case 2: mostrarProductosInactivos();;
                     break;
                 case 3:
                 	System.out.println("Opcion 3");
@@ -84,4 +85,9 @@ public class Main {
 		};
 		productos.forEach(products);
 	}
+	public static void mostrarProductosInactivos () {
+		Predicate<Product> estadoInactivo = p -> !p.getEstado();
+		productos.stream().filter(estadoInactivo).forEach(x -> System.out.println(x));
+	}
+
 }
