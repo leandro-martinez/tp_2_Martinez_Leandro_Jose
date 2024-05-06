@@ -47,8 +47,7 @@ public class Main {
                     break;
                 case 5: filtrarPorPrecio();
                     break;
-                case 6:
-                	System.out.println("Opcion 6");
+                case 6: nombresEnMayusculas();
                     break;
                 case 7:
                     System.out.println("Fin del programa...");
@@ -111,5 +110,9 @@ public class Main {
 		productos.sort(Comparator.comparing(Product::getPrecioUnitario).reversed());
 		System.out.println("------ Productos ordenados por precio en forma descendente ------");
 		productos.forEach(p -> System.out.println(p));
+	}
+	public static void nombresEnMayusculas () {
+		Function<Product, String> nombreMayusculas = p-> p.getDescripcion().toUpperCase();
+		productos.stream().map(nombreMayusculas).collect(Collectors.toList()).forEach(s -> System.out.println(s));
 	}
 }
