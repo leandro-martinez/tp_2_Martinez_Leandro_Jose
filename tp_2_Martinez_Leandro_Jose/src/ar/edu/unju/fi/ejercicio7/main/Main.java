@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import ar.edu.unju.fi.ejercicio1.model.Producto.Categoria;
 import ar.edu.unju.fi.ejercicio1.model.Producto.OrigenFabricacion;
@@ -38,8 +40,7 @@ public class Main {
                     break;
                 case 2: mostrarProductosInactivos();;
                     break;
-                case 3:
-                	System.out.println("Opcion 3");
+                case 3: incrementarPrecios();
                     break;
                 case 4:
                 	System.out.println("Opcion 4");
@@ -89,5 +90,15 @@ public class Main {
 		Predicate<Product> estadoInactivo = p -> !p.getEstado();
 		productos.stream().filter(estadoInactivo).forEach(x -> System.out.println(x));
 	}
-
+	public static void incrementarPrecios () {
+		Function<Product, Product> incrementarPrecio = p -> {
+			double precioNuevo = p.getPrecioUnitario() + p.getPrecioUnitario() * 0.2;
+			p.setPrecioUnitario(precioNuevo);
+			return p;
+		};
+		List<Product> productosIncrementados = productos.stream().map(incrementarPrecio).collect(Collectors.toList());
+		System.out.println("--- Precios incrementados en un 20% ---");
+		productosIncrementados.forEach(x -> System.out.println(x));
+		
+	}
 }
